@@ -10,10 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Autowired
+
     private UserService service;
+    private UserController (UserService service){
+        this.service=service;
+    }
+
     @PostMapping("/register")
     public Users register(@RequestBody Users users){
        return service.register(users);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody Users users){
+        return "success";
     }
 }

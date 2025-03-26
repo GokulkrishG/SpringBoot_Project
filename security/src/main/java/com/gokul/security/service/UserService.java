@@ -15,8 +15,9 @@ public class UserService {
     public BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
 
-    public Users register(Users users){
+    public Users register(Users users) {
         users.setPassword(encoder.encode(users.getPassword()));
         return repo.save(users);
     }
+
 }
